@@ -34,4 +34,20 @@ public class InscriptionServiceImpl implements InscriptionsService{
     public List<Student> findAllStudents() {
         return studentRepository.findAll();
     }
+
+    /**
+     * Inserta un nuevo estudiante en la base
+     * @param student Estudiante a insertar en la base
+     * @return
+     */
+    @Override
+    public Student insertNewStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
+    @Override
+    public void delete(Student student) {
+        studentRepository.delete(student);
+        return;
+    }
 }

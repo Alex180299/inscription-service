@@ -11,5 +11,6 @@ public interface InscriptionsService {
 
     public Student findStudentById(Long id);
     public List<Student> findAllStudents();
-
+    public Student insertNewStudent(Student student);
+    public void delete(Student student);
 }
