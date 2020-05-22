@@ -61,14 +61,16 @@ class InscriptionServiceImplTest {
 
     @Test
     public void deleteStudent(){
-        //given
+        //Feature -> funcionalidad a probar
+        //Scenario -> uno por cada prueba
+        //given -> Contexto o precondiciones
         Student student = new Student();
 
-        //when
+        //when -> Acciones que se van a ejecutar
         service.delete(student);
         service.delete(student);
 
-        //then
+        //then -> Resultado esperado y validaciones
         then(studentRepository).should(atLeastOnce()).delete(any(Student.class));
         //verify(studentRepository).delete(any(Student.class));
     }
@@ -79,10 +81,11 @@ class InscriptionServiceImplTest {
 
         doThrow(new RuntimeException("Boom")).when(studentRepository).delete(any(Student.class));
         assertThrows(RuntimeException.class, () -> {
-            studentRepository.delete(student);
+            service.delete(student);
         });
 
-        service.delete(student);
+        //service.delete(student);
+        //then(studentRepository).should(atLeastOnce()).delete(any(Student.class));
     }
 
 }
